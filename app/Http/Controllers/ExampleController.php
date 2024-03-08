@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use PhpOffice\PhpWord\TemplateProcessor;
+
 class ExampleController extends Controller
 {
     /**
@@ -14,5 +16,9 @@ class ExampleController extends Controller
         //
     }
 
-    //
+    public function readDocx() {
+        $reader = new TemplateProcessor(storage_path('app/test-php.docx'));
+        $reader->setValue('nama', 'Peter Parker');
+        $reader->saveAs(storage_path('app/result.docx'));
+    }
 }

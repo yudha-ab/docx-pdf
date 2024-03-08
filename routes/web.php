@@ -2,6 +2,8 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
+use Illuminate\Support\Facades\App;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -16,3 +18,5 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('/hello', 'ExampleController@readDocx');
